@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "themeName": "Aqua",
+        "variant": [
+            {
+                "id": 1,
+                "name": "default",
+                "selected": false
+            },
+            {
+                "id": 2,
+                "name": "black",
+                "selected": false
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "themeName": "Crimso",
+        "variant": [
+            {
+                "id": 1,
+                "name": "default",
+                "selected": false
+            },
+            {
+                "id": 2,
+                "name": "blue",
+                "selected": false
+            },
+            {
+                "id": 3,
+                "name": "prink",
+                "selected": false
+            }
+        ]
+    }
+]

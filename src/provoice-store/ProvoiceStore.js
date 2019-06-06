@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
 import Aqua from "../themes/aqua/Aqua"
 import Crimso from '../themes/crimso/Crimso'
 
+import data from "./data.json"
+
 class ProvoiceStore extends Component {
+    // componentWillMount() {
+    //     console.log(data);
+    // }
     render() {
         return (
             <div>
                 <ul>
-                    <li>
-                        <div className="aqua">
-                            <Link to="invoice/aqua">
-                                <span>Aqua</span>
-                            </Link>
-                            <select name="aqua" id="aqua">
-                                <option value="default">Default</option>
-                                <option value="black">Black</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="crimso">
-                            <Link to="invoice/crimso">
-                                <span>Crimso</span>
-                            </Link>
-                            <select name="crimso" id="crimso">
-                                <option value="default">Default</option>
-                                <option value="blue">Blue</option>
-                                <option value="pink">Pink</option>
-                            </select>
-                        </div>
-                    </li>
+                    {data.map((template, id) =>
+                        <li key={id}>
+                            <div className="">
+                                <Link to={{
+                                    pathname: `invoice/${template.themeName}`,
+                                    state: template
+                                }}>
+                                    <span>{template.themeName}</span>
+                                </Link>
+                                <select name={template.themeName} id={template.themeName}>
+                                    {
+                                        template.variant.map((variant, id2) => <option key={id2} value={variant.name}>{variant.name}</option>)
+                                    }
+                                    {
+                                        console.log(template)
+                                    }
+                                </select>
+                            </div>
+                        </li>
+                    )}
                 </ul>
             </div>
         );
